@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../../public/favicon.png" rel="shortcut icon" type="image/x-icon">
-  <title>🎮 gameDev Intro - JS</title>
+  <link href="../favicon.png" rel="shortcut icon" type="image/x-icon">
+  <title>🎮 Super Mario JS</title>
   <style>
     @import 'https://fonts.googleapis.com/css?family=Poppins:500,700';
     body {
@@ -19,7 +19,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-    #mainTitle {
+    #title {
       font-size: 3.3em;
       color: #ffaa6c;
       margin-bottom: -15px;
@@ -34,9 +34,6 @@
       border-radius: 0.75rem;
       border: #ff6c6c solid 6px;
     }
-    img {
-      display: none;
-    }
     footer {
       text-align: right;
       margin-top: 97.8vh;
@@ -47,17 +44,14 @@
 
   <div class="centered">
     <div id="titleBox">
-      <h1 id="mainTitle">Brick Breaker 🧱</h1>
-      <!-- <h2>{ <a href="https://www.youtube.com/watch?v=3EMxBkqC4z0&t=137s" target="_blank">freeCodeCamp</a> } &nbsp; <span id="subTitle">gameDev Intro JS</span></h2> -->
+      <h1 id="title">Super Mario <span id="subTitle">JS</span> 🎮</h1>
     </div>
-    <img id="img_brick" src="./assets/img/brick.png">
-    <img id="img_ball" src="./assets/img/ball.png">
-    <canvas id="gameScreen" width="800" height="600"></canvas>
+    <canvas id="gameScreen" width="480" height="480"></canvas>
   </div>
   <footer>
-    <p>Game Code <a href="https://github.com/cwooz/freeCodeCamp_tutorials">@github.com</a></p>
+    <p>Game Code <a href="https://github.com/cwooz/super-mario_JS">@github.com</a></p>
   </footer>
 
-<script type="module" src=""></script>
+<script type="module" src="./js/main.js"></script>
 </body>
 </html>
