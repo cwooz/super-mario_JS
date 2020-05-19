@@ -1,4 +1,4 @@
-# [super-mario_js](#)
+# [super-mario_JS](#)
 
 Super Mario Bros. in JavaScript (2020), powered by [javascript, node, express,](#).
 
@@ -11,4 +11,4 @@ Super Mario Bros. in JavaScript (2020), powered by [javascript, node, express,](
 import { Javascript, CSS, HTML, Node, Express } from "dependencies";
 ```
 
-<img alt='Screen Shot' src="./public/README.png" width="888">
+<img alt='Screen Shot' src="/README.png" width="888">
