@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../public/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <title>🎮 gameDev Intro - JS</title>
+  <style>
+    @import 'https://fonts.googleapis.com/css?family=Poppins:500,700';
+    body {
+      color: #ffffff;
+      background: #1B2431;
+      font-family: 'Poppins', sans-serif;
+    }
+    .centered {
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #mainTitle {
+      font-size: 3.3em;
+      color: #ffaa6c;
+      margin-bottom: -15px;
+    }
+    #subTitle {
+      color: #45ffa5;
+    }
+    #titleBox {
+      margin-bottom: 60px;
+    }
+    #gameScreen {
+      border-radius: 0.75rem;
+      border: #ff6c6c solid 6px;
+    }
+    img {
+      display: none;
+    }
+    footer {
+      text-align: right;
+      margin-top: 97.8vh;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="centered">
+    <div id="titleBox">
+      <h1 id="mainTitle">Brick Breaker 🧱</h1>
+      <!-- <h2>{ <a href="https://www.youtube.com/watch?v=3EMxBkqC4z0&t=137s" target="_blank">freeCodeCamp</a> } &nbsp; <span id="subTitle">gameDev Intro JS</span></h2> -->
+    </div>
+    <img id="img_brick" src="./assets/img/brick.png">
+    <img id="img_ball" src="./assets/img/ball.png">
+    <canvas id="gameScreen" width="800" height="600"></canvas>
+  </div>
+  <footer>
+    <p>Game Code <a href="https://github.com/cwooz/freeCodeCamp_tutorials">@github.com</a></p>
+  </footer>
+
+<script type="module" src=""></script>
+</body>
+</html>
