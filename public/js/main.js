@@ -13,33 +13,47 @@ function drawBackgrond(background, context, sprites) {
   });
 }
 
-const canvas = document.getElementById('gameScreen');
-const context = canvas.getContext('2d');
-
-// loadImage('./img/tiles.png')
-//   .then(image => {
-//     context.drawImage(image, 0, 0, 16, 16, 32, 32, 16, 16);
-//   });
-
-loadImage('./img/tiles.png')
+function loadMarioSprite() {  
+  return loadImage'./img/characters.gif')
   .then(image => {
     const sprites = new SpriteSheet(image, 16, 16);
     sprites.define('ground', 0, 0);
     sprites.define('sky', 3, 23);
     sprites.draw('ground', context, 45, 62);
-
-    loadLevel('1-1')
-      .then(level => {
-        console.log(level);
-        level.background.forEach(background => {
-          drawBackgrond(background, context, sprites);
-        })
-      });
+    return sprites;
   });
+}
+
+function loadBackgroundSprites() {  
+  return loadImage('./img/tiles.png')
+  .then(image => {
+    const sprites = new SpriteSheet(image, 16, 16);
+    sprites.define('ground', 0, 0);
+    sprites.define('sky', 3, 23);
+    sprites.draw('ground', context, 45, 62);
+    return sprites;
+  });
+}
+
+const canvas = document.getElementById('gameScreen');
+const context = canvas.getContext('2d');
+
+
+Promise.all([
+  loadBackgroundSprites(),
+  loadLevel('1-1')
+])
+.then(([sprites, level]) => {
+  // console.log(level);
+  level.background.forEach(background => {
+    drawBackgrond(background, context, sprites);
+  });
+});
+
 
 
 
   // -------------------------------
-  // STOPED - @14:00 EP1
+  // STOPED - @00:00 EP2
   // https://www.youtube.com/playlist?list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx
   // -------------------------------
