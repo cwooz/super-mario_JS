@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./favicon.png" rel="shortcut icon" type="image/x-icon">
+    <title>💾 freeCodeCamp</title>
+    <style>
+      @import 'https://fonts.googleapis.com/css?family=Poppins:500,700';
+      body {
+        color: #ffffff;
+        background: #1B2431;
+        font-family: 'Poppins', sans-serif;
+      }
+      .centered {
+        top: 50%;
+        left: 50%;
+        position: fixed;
+        transform: translate(-50%, -50%);
+      }
+      #title {
+        font-size: 3.3em;
+        color: #ffaa6c;
+        margin-bottom: -15px;
+      }
+      #subTitle {
+        color: #45ffa5;
+      }
+      #titleBox {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+      #output {
+        padding: 88px;
+        font-size: 25px;
+        text-align: center;
+        border-radius: 0.75rem;
+        border: #ff6c6c solid 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="centered">
+      <div id="titleBox">
+        <h1 id="title">freeCodeCamp 🎧<br> <span id="subTitle">- Record Collection -</span></h1>
+      </div>
+      <div id="output">
+      </div>
+    </div>
+<script>
+    // Setup
+  var collection = {
+    2548: {
+      album: "Slippery When Wet",
+      artist: "Bon Jovi",
+      tracks: [
+        "Let It Rock",
+        "You Give Love a Bad Name"
+      ]
+    },
+    2468: {
+      album: "1999",
+      artist: "Prince",
+      tracks: [
+        "1999",
+        "Little Red Corvette"
+      ]
+    },
+    1245: {
+      artist: "Robert Palmer",
+      tracks: [ 1, 2, 3 ]
+    },
+    5439: {
+      album: "ABBA Gold"
+    }
+  };
+
+  // Only change code below this line
+  function updateRecords(id, prop, value) {
+
+    let output = document.getElementById('output').innerHTML = 'collection[1245].tracks';
+
+
+    // console.log(collection[1245].tracks.push(1));
+    // console.log(collection[1245].tracks);
+
+    collection[id][prop] = value;
+  // console.log(collection[id].hasOwnProperty('album'));
+
+  if (prop == "tracks" && !collection[id].hasOwnProperty('tracks')) {
+    collection[id].tracks = [];
+    collection[id][prop] = value;
+  } else if (prop == "tracks" && collection[id].hasOwnProperty('tracks')) {
+    // collection[id].tracks.push('value');
+  }
+
+  if (value == "") {
+    delete collection[id][prop];
+  }
+
+  // collection[id][prop] = prop;
+  // collection[id][value] = value;
+
+
+
+    return collection;
+  }
+
+
+  let print = [ updateRecords(5439, "artist", "ABBA"),
+  updateRecords(5439, "artist", "ABBA"),
+  updateRecords(5439, "tracks", "Take a Chance on Me"),
+  updateRecords(2548, "artist", ""),
+  updateRecords(1245, "tracks", "Addicted to Love"),
+  updateRecords(2468, "tracks", "Free"),
+  updateRecords(2548, "tracks", ""),
+  updateRecords(1245, "album", "Riptide") ]
+
+  
+  print.forEach((el) => {
+    console.log(el);
+    
+    document.getElementById('output').innerHTML = el;
+
+    // let output = document.getElementById('output');
+    // let li = document.createElement('li').innerHTML = 'el';
+    output.append.li
+  });
+
+
+
+  // console.log(updateRecords(5439, "artist", "ABBA"));
+  // console.log(updateRecords(5439, "artist", "ABBA"));
+  // console.log(updateRecords(5439, "tracks", "Take a Chance on Me"));
+  // console.log(updateRecords(2548, "artist", ""));
+  // console.log(updateRecords(1245, "tracks", "Addicted to Love"));
+  // console.log(updateRecords(2468, "tracks", "Free"));
+  // console.log(updateRecords(2548, "tracks", ""));
+  // console.log(updateRecords(1245, "album", "Riptide"));
+
+
+
+
+</script>
+</body>
+</html>
