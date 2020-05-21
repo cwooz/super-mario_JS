@@ -1,59 +1,51 @@
-import SpriteSheet from "./SpriteSheet.js";
-import { loadImage, loadLevel } from "./loaders.js";
+import Compositor from './Compositor.js';
+import {loadLevel} from './loaders.js';
+import {loadMarioSprite, loadBackgroundSprites} from './sprites.js';
+import {createBackgroundLayer} from './layers.js';
 
-
-function drawBackgrond(background, context, sprites) {
-  background.ranges.forEach(([x1, x2, y1, y2]) => {
-
-    for (let x = x1; x < x2; x++) {
-      for (let y = y1; y < y2; y++) {
-        sprites.draw(background.tile, context, x, y);
-      }
-    }
-  });
-}
-
-function loadMarioSprite() {  
-  return loadImage'./img/characters.gif')
-  .then(image => {
-    const sprites = new SpriteSheet(image, 16, 16);
-    sprites.define('ground', 0, 0);
-    sprites.define('sky', 3, 23);
-    sprites.draw('ground', context, 45, 62);
-    return sprites;
-  });
-}
-
-function loadBackgroundSprites() {  
-  return loadImage('./img/tiles.png')
-  .then(image => {
-    const sprites = new SpriteSheet(image, 16, 16);
-    sprites.define('ground', 0, 0);
-    sprites.define('sky', 3, 23);
-    sprites.draw('ground', context, 45, 62);
-    return sprites;
-  });
-}
-
-const canvas = document.getElementById('gameScreen');
+const canvas = document.getElementById('screen');
 const context = canvas.getContext('2d');
 
 
+function createSpriteLayer(sprite, pos) {
+    return function drawSpriteLayer(context) {
+        sprite.draw('idle', context, pos.x, pos.y);
+    };
+}
+
+
 Promise.all([
-  loadBackgroundSprites(),
-  loadLevel('1-1')
+    loadMarioSprite(),
+    loadBackgroundSprites(),
+    loadLevel('1-1'),
 ])
-.then(([sprites, level]) => {
-  // console.log(level);
-  level.background.forEach(background => {
-    drawBackgrond(background, context, sprites);
-  });
+.then(([marioSprite, backgroundSprites, level]) => {
+    console.log('Level loader', level);
+
+    const comp = new Compositor();
+    comp.layers.push(createBackgroundLayer(level.backgrounds, backgroundSprites));
+
+    const pos = {
+        x: 64,
+        y: 64,
+    };
+
+    comp.layers.push(createSpriteLayer(marioSprite, pos));
+
+    function update() {
+        comp.draw(context);
+        pos.x += 2;
+        pos.y += 1;
+        requestAnimationFrame(update);
+    }
+
+    update();
 });
 
 
 
 
   // -------------------------------
-  // STOPED - @00:00 EP2
+  // STOPED - @20:00 EP2
   // https://www.youtube.com/playlist?list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx
   // -------------------------------
