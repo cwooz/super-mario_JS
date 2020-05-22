@@ -76,7 +76,7 @@
   };
 
   // Only change code below this line
-  function updateRecords(id, prop, value) {
+  function updateRecords([ id, prop, value ]) {
 
     let output = document.getElementById('output').innerHTML = 'collection[1245].tracks';
 
@@ -107,24 +107,27 @@
   }
 
 
-  let print = [ updateRecords(5439, "artist", "ABBA"),
-  updateRecords(5439, "artist", "ABBA"),
-  updateRecords(5439, "tracks", "Take a Chance on Me"),
-  updateRecords(2548, "artist", ""),
-  updateRecords(1245, "tracks", "Addicted to Love"),
-  updateRecords(2468, "tracks", "Free"),
-  updateRecords(2548, "tracks", ""),
-  updateRecords(1245, "album", "Riptide") ]
+  let print = [ 
+  [ 5439, "artist", "ABBA" ],
+  [ 5439, "artist", "ABBA" ],
+  [ 5439, "tracks", "Take a Chance on Me" ],
+  [ 2548, "artist", "" ],
+  [ 1245, "tracks", "Addicted to Love" ],
+  [ 2468, "tracks", "Free" ],
+  [ 2548, "tracks", "" ],
+  [ 1245, "album", "Riptide" ] ]
 
   
   print.forEach((el) => {
     console.log(el);
-    
+    console.log(collection);    
+
+    updateRecords(el);
     document.getElementById('output').innerHTML = el;
 
     // let output = document.getElementById('output');
     // let li = document.createElement('li').innerHTML = 'el';
-    output.append.li
+    // output.append.li
   });
 
 
