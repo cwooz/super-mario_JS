@@ -79,13 +79,8 @@
   function updateRecords([ id, prop, value ]) {
 
     let output = document.getElementById('output').innerHTML = 'collection[1245].tracks';
-
-
-    // console.log(collection[1245].tracks.push(1));
-    // console.log(collection[1245].tracks);
-
     collection[id][prop] = value;
-  // console.log(collection[id].hasOwnProperty('album'));
+
 
   if (prop == "tracks" && !collection[id].hasOwnProperty('tracks')) {
     collection[id].tracks = [];
@@ -100,7 +95,6 @@
 
   // collection[id][prop] = prop;
   // collection[id][value] = value;
-
 
 
     return collection;
